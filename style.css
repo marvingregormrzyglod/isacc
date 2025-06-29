@@ -18,8 +18,6 @@ body {
 /* 1. Hero Section with Background Image */
 .hero-section {
     height: 100vh;
-    /* This rule applies image1.jpg as the background */
-    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('assets/image1.jpg');
     background-size: cover;
     background-position: center;
     display: flex;
