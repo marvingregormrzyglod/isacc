@@ -15,9 +15,10 @@ body {
     background-color: var(--light-bg); /* Fallback background */
 }
 
-/* 1. Hero Section with Background Image */
+/* Hero Section */
 .hero-section {
     height: 100vh;
+    /* The background-image is set in the HTML file's style attribute */
     background-size: cover;
     background-position: center;
     display: flex;
@@ -45,6 +46,12 @@ nav {
     margin: 20px 40px;
 }
 
+/* 1. More space between logo and text */
+.hero-text {
+    padding-top: 5vh; /* This pushes the text down from the logo */
+}
+
+
 .hero-text h1 {
     font-size: 2.8rem;
     font-weight: bold;
@@ -56,18 +63,18 @@ nav {
     text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
 }
 
-/* 2. Wider and Longer Blue Line */
+/* 2. Thicker and longer blue line */
 .downward-line {
-    width: 5px; /* Made thicker */
-    height: 180px; /* Made longer */
+    width: 8px; /* Made thicker */
+    height: 30vh; /* Made significantly longer to reach the next section */
     background: linear-gradient(to bottom, #005A9C, transparent);
     margin: 30px auto 0;
 }
 
-/* Intro Section with More Padding */
+/* Intro Section */
 .intro-section {
     background-color: var(--light-bg);
-    padding: 100px 40px; /* Increased padding */
+    padding: 100px 40px; 
     text-align: center;
 }
 
@@ -95,14 +102,13 @@ nav {
     font-size: 1.1rem;
 }
 
-/* 3. Constrained Slideshow Size */
+/* Constrained Slideshow Size */
 .carousel-section {
     position: relative;
     width: 100%;
-    /* Set a max height for the carousel area */
     height: 550px;
     overflow: hidden;
-    background-color: #2e2e2e; /* Fallback for image loading */
+    background-color: #2e2e2e; 
 }
 
 .carousel {
@@ -125,7 +131,6 @@ nav {
     width: 100%;
     height: 100%;
     display: block;
-    /* This ensures images fill the container without distortion */
     object-fit: cover;
 }
 
@@ -166,18 +171,18 @@ nav {
 .prev { left: 15px; }
 .next { right: 15px; }
 
-/* CTA Section with More Padding */
+/* CTA Section */
 .cta-section {
     background-color: var(--dark-bg);
     color: var(--text-light);
-    padding: 100px 40px; /* Increased padding */
+    padding: 100px 40px; 
 }
 
 .cta-content {
     display: flex;
     max-width: 1200px;
     margin: 0 auto;
-    gap: 60px; /* Increased gap */
+    gap: 60px; 
 }
 
 .cta-left, .cta-right {
@@ -199,7 +204,7 @@ nav {
 }
 
 #contact-form input {
-    padding: 12px; /* Slightly larger inputs */
+    padding: 12px; 
     border: 1px solid #ccc;
     border-radius: 4px;
     flex-grow: 1;
@@ -220,24 +225,24 @@ nav {
 }
 
 .cta-right .step {
-    margin-bottom: 25px; /* Increased spacing */
+    margin-bottom: 25px; 
 }
 
 .cta-right h3 {
     margin-bottom: 5px;
 }
 
-/* Partners Section with More Padding */
+/* Partners Section */
 .partners-section {
     background-color: var(--light-bg);
-    padding: 100px 40px; /* Increased padding */
+    padding: 100px 40px; 
 }
 
 .partners-content {
     display: flex;
     max-width: 1200px;
     margin: 0 auto;
-    gap: 60px; /* Increased gap */
+    gap: 60px; 
     align-items: center;
 }
 
@@ -253,22 +258,21 @@ nav {
     flex: 1;
 }
 
-/* 4. Brightened Partner Image */
+/* 3. Partner image made even brighter */
 .partners-right img {
     border: 5px solid white;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     width: 100%;
     height: auto;
     display: block;
-    /* This filter brightens the image */
-    filter: brightness(1.25);
+    filter: brightness(1.5) contrast(1.1); /* Increased brightness */
 }
 
 .stats-container {
     display: flex;
     justify-content: space-around;
     max-width: 1200px;
-    margin: 80px auto 0; /* Increased margin-top */
+    margin: 80px auto 0;
     text-align: center;
     flex-wrap: wrap;
 }
@@ -291,7 +295,7 @@ nav {
 footer {
     background-color: #333;
     color: #eee;
-    padding: 50px 40px; /* Increased padding */
+    padding: 50px 40px;
     text-align: left;
 }
 
