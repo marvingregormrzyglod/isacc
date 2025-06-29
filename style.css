@@ -12,12 +12,14 @@ body {
     margin: 0;
     color: var(--text-dark);
     line-height: 1.6;
+    background-color: var(--light-bg); /* Fallback background */
 }
 
-/* Hero Section */
+/* 1. Hero Section with Background Image */
 .hero-section {
     height: 100vh;
-    background-image: url('assets/image1.jpg');
+    /* This rule applies image1.jpg as the background */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('assets/image1.jpg');
     background-size: cover;
     background-position: center;
     display: flex;
@@ -27,6 +29,8 @@ body {
     text-align: center;
     color: var(--text-light);
     position: relative;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 nav {
@@ -39,8 +43,7 @@ nav {
 }
 
 .logo {
-    width: 100px; /* Adjust as needed */
-    height: auto;
+    width: 100px;
     margin: 20px 40px;
 }
 
@@ -55,17 +58,18 @@ nav {
     text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
 }
 
+/* 2. Wider and Longer Blue Line */
 .downward-line {
-    width: 3px;
-    height: 100px;
+    width: 5px; /* Made thicker */
+    height: 180px; /* Made longer */
     background: linear-gradient(to bottom, #005A9C, transparent);
-    margin: 20px auto 0;
+    margin: 30px auto 0;
 }
 
-/* Intro Section */
+/* Intro Section with More Padding */
 .intro-section {
     background-color: var(--light-bg);
-    padding: 80px 20px;
+    padding: 100px 40px; /* Increased padding */
     text-align: center;
 }
 
@@ -93,15 +97,19 @@ nav {
     font-size: 1.1rem;
 }
 
-/* Carousel Section */
+/* 3. Constrained Slideshow Size */
 .carousel-section {
     position: relative;
     width: 100%;
+    /* Set a max height for the carousel area */
+    height: 550px;
     overflow: hidden;
+    background-color: #2e2e2e; /* Fallback for image loading */
 }
 
 .carousel {
     display: flex;
+    height: 100%;
     transition: transform 0.5s ease-in-out;
 }
 
@@ -109,6 +117,7 @@ nav {
     min-width: 100%;
     position: relative;
     display: none;
+    height: 100%;
 }
 .carousel-slide.active {
     display: block;
@@ -116,9 +125,12 @@ nav {
 
 .carousel-slide img {
     width: 100%;
-    height: auto;
+    height: 100%;
     display: block;
+    /* This ensures images fill the container without distortion */
+    object-fit: cover;
 }
+
 
 .slide-caption {
     position: absolute;
@@ -156,18 +168,18 @@ nav {
 .prev { left: 15px; }
 .next { right: 15px; }
 
-/* CTA Section */
+/* CTA Section with More Padding */
 .cta-section {
     background-color: var(--dark-bg);
     color: var(--text-light);
-    padding: 80px 40px;
+    padding: 100px 40px; /* Increased padding */
 }
 
 .cta-content {
     display: flex;
     max-width: 1200px;
     margin: 0 auto;
-    gap: 40px;
+    gap: 60px; /* Increased gap */
 }
 
 .cta-left, .cta-right {
@@ -189,14 +201,14 @@ nav {
 }
 
 #contact-form input {
-    padding: 10px;
+    padding: 12px; /* Slightly larger inputs */
     border: 1px solid #ccc;
     border-radius: 4px;
     flex-grow: 1;
 }
 
 #contact-form button {
-    padding: 10px 20px;
+    padding: 12px 22px;
     background-color: var(--purple-blue);
     color: white;
     border: none;
@@ -210,24 +222,24 @@ nav {
 }
 
 .cta-right .step {
-    margin-bottom: 20px;
+    margin-bottom: 25px; /* Increased spacing */
 }
 
 .cta-right h3 {
     margin-bottom: 5px;
 }
 
-/* Partners Section */
+/* Partners Section with More Padding */
 .partners-section {
     background-color: var(--light-bg);
-    padding: 80px 40px;
+    padding: 100px 40px; /* Increased padding */
 }
 
 .partners-content {
     display: flex;
     max-width: 1200px;
     margin: 0 auto;
-    gap: 40px;
+    gap: 60px; /* Increased gap */
     align-items: center;
 }
 
@@ -243,18 +255,22 @@ nav {
     flex: 1;
 }
 
+/* 4. Brightened Partner Image */
 .partners-right img {
     border: 5px solid white;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     width: 100%;
     height: auto;
+    display: block;
+    /* This filter brightens the image */
+    filter: brightness(1.25);
 }
 
 .stats-container {
     display: flex;
     justify-content: space-around;
     max-width: 1200px;
-    margin: 60px auto 0;
+    margin: 80px auto 0; /* Increased margin-top */
     text-align: center;
     flex-wrap: wrap;
 }
@@ -277,7 +293,7 @@ nav {
 footer {
     background-color: #333;
     color: #eee;
-    padding: 40px;
+    padding: 50px 40px; /* Increased padding */
     text-align: left;
 }
 
@@ -293,4 +309,7 @@ footer p {
     .slide-caption { width: 80%; padding: 20px; }
     .slide-caption h3 { font-size: 1.4rem; }
     .slide-caption span { font-size: 1rem; }
+    #contact-form { flex-direction: column; }
+    .carousel-section { height: 450px; }
+    .intro-section, .cta-section, .partners-section { padding: 80px 20px; }
 }
