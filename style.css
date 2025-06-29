@@ -48,7 +48,7 @@ nav {
 
 /* 1. More space between logo and text */
 .hero-text {
-    padding-top: 15vh; /* This pushes the text down from the logo */
+    padding-top: 4vh; /* This pushes the text down from the logo */
 }
 
 
