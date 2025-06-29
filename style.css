@@ -48,7 +48,7 @@ nav {
 
 /* 1. More space between logo and text */
 .hero-text {
-    padding-top: 5vh; /* This pushes the text down from the logo */
+    padding-top: 15vh; /* This pushes the text down from the logo */
 }
 
 
@@ -65,8 +65,8 @@ nav {
 
 /* 2. Thicker and longer blue line */
 .downward-line {
-    width: 8px; /* Made thicker */
-    height: 30vh; /* Made significantly longer to reach the next section */
+    width: 12px; /* Made thicker */
+    height: 50vh; /* Made significantly longer to reach the next section */
     background: linear-gradient(to bottom, #005A9C, transparent);
     margin: 30px auto 0;
 }
