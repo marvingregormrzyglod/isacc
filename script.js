@@ -88,3 +88,32 @@ menuToggle.addEventListener('click', () => {
     document.body.classList.toggle('menu-open');
 });
 // END: Added Fullscreen Menu Logic
+
+
+
+
+//
+// START: Added Accordion Logic for Trainings Page
+//
+document.addEventListener('DOMContentLoaded', () => {
+    const accordionHeaders = document.querySelectorAll('.course-header');
+
+    accordionHeaders.forEach(header => {
+        header.addEventListener('click', () => {
+            // Toggle active class on the button
+            header.classList.toggle('active');
+
+            // The content is the next element sibling
+            const content = header.nextElementSibling;
+
+            // Expand or collapse content
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+            }
+        });
+    });
+});
+// END: Added Accordion Logic for Trainings Page
+//
