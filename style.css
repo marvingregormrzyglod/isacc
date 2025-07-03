@@ -389,6 +389,158 @@ footer p {
 }
 /* END: Styles for Fullscreen Menu */
 
+
+
+
+/*
+========================================
+STYLES FOR TRAININGS PAGE
+========================================
+*/
+
+/* Hero section for sub-pages */
+.hero-trainings {
+    height: 70vh; /* Shorter than the homepage hero */
+    align-items: flex-end; /* Aligns content to the bottom */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4)), url('trainings1.jpg');
+}
+
+.hero-page-title {
+    width: 100%;
+    text-align: left;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+.hero-page-title h1 {
+    font-size: 4rem;
+    margin: 0;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+}
+
+/* General content wrapper for centering */
+.content-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Courses Section (Accordion) */
+.courses-section {
+    background-color: var(--light-bg);
+    padding: 100px 0;
+}
+
+.course-item {
+    border-bottom: 1px solid #ccc;
+}
+
+.course-header {
+    width: 100%;
+    background: none;
+    border: none;
+    text-align: left;
+    font-size: 1.3rem;
+    font-weight: bold;
+    padding: 20px 0;
+    cursor: pointer;
+    position: relative;
+    color: var(--text-dark);
+}
+
+.course-header::after {
+    content: '+';
+    position: absolute;
+    right: 0;
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--purple-blue);
+    transition: transform 0.3s ease;
+}
+
+.course-header.active::after {
+    transform: rotate(45deg);
+}
+
+.course-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
+    padding: 0;
+}
+
+.course-content p, .course-content ul {
+    margin-top: 0;
+    padding-bottom: 20px;
+}
+
+.course-content ul {
+    padding-left: 20px;
+}
+
+/* Distinctives Section */
+.distinctives-section {
+    background-color: #f7f7f7;
+    padding: 100px 0;
+}
+
+.distinctives-section h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2rem;
+}
+
+.distinctives-list dt {
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-top: 20px;
+    color: var(--purple-blue);
+}
+
+.distinctives-list dd {
+    margin-left: 0;
+    margin-bottom: 20px;
+}
+
+/* Training Contact Form */
+.training-contact-section form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 700px;
+    margin: 20px auto 0;
+}
+
+.training-contact-section h2,
+.training-contact-section p {
+    text-align: center;
+}
+
+.training-contact-section input,
+.training-contact-section textarea,
+.training-contact-section button {
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    font-family: inherit;
+}
+
+.training-contact-section textarea {
+    resize: vertical;
+}
+
+.training-contact-section button {
+    background-color: var(--purple-blue);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+
+
+
 /* Responsive Adjustments */
 @media (max-width: 768px) {
     .hero-text h1 { font-size: 2rem; }
