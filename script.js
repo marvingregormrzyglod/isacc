@@ -76,3 +76,15 @@ function doPost(e) {
 }
 
 */
+
+
+// START: Added Fullscreen Menu Logic
+const menuToggle = document.querySelector('.menu-toggle');
+const fullscreenMenu = document.getElementById('fullscreen-menu');
+
+menuToggle.addEventListener('click', () => {
+    menuToggle.classList.toggle('active');
+    fullscreenMenu.classList.toggle('visible');
+    document.body.classList.toggle('menu-open');
+});
+// END: Added Fullscreen Menu Logic
