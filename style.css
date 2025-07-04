@@ -512,6 +512,32 @@ STYLES FOR SUB-PAGES
 .hero-advocacy { background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.4)), url('advocacy1.jpg'); }
 .hero-about { background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.4)), url('about1.jpg'); }
 
+.at-a-glance-section {
+    background-color: var(--dark-bg);
+    color: var(--text-light);
+    padding: 40px 20px;
+}
+.glance-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+    gap: 20px;
+}
+.glance-item i {
+    font-size: 2.5rem;
+    color: var(--purple-blue);
+    margin-bottom: 10px;
+}
+.glance-item h3 {
+    margin: 0;
+    font-size: 2rem;
+}
+.glance-item p {
+    margin: 0;
+    font-size: 1rem;
+}
 
 
 
@@ -551,8 +577,36 @@ STYLES FOR TRAININGS PAGE
 
 /* Courses Section (Accordion) */
 .courses-section {
-    background-color: var(--light-bg);
-    padding: 100px 0;
+    background-color: #f7f7f7;
+    padding: 100px 20px;
+}
+
+.course-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.course-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+.course-card i {
+    font-size: 2.5rem;
+    color: var(--purple-blue);
+    margin-bottom: 15px;
+}
+.course-card h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.2rem;
+}
+.course-card .course-audience {
+    font-size: 1rem;
+    line-height: 1.5;
 }
 
 .course-item {
@@ -680,9 +734,84 @@ STYLES FOR RESEARCH PAGE
     background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4)), url('research1.jpg');
 }
 
-.research-projects-section {
+.featured-research-section {
     background-color: var(--light-bg);
-    padding: 80px 0;
+    padding: 80px 20px;
+}
+.featured-research-section h3 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 40px;
+}
+.featured-research-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+.featured-item {
+    background: #fff;
+    padding: 25px;
+    border-radius: 5px;
+}
+.featured-item h4 {
+    margin-top: 0;
+    color: var(--purple-blue);
+}
+.research-projects-section {
+    padding: 80px 20px;
+    background: #f7f7f7;
+}
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    background-color: var(--purple-blue);
+    top: 0;
+    bottom: 0;
+    left: 20px;
+}
+.timeline-item {
+    padding: 10px 40px 30px 60px;
+    position: relative;
+}
+.timeline-item::after {
+    content: '\f111'; /* Font Awesome circle icon */
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    position: absolute;
+    left: 8px;
+    top: 10px;
+    font-size: 1.2rem;
+    color: #fff;
+    background-color: var(--purple-blue);
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    text-align: center;
+    line-height: 28px;
+    z-index: 1;
+}
+.timeline-content h4 {
+    margin-top: 0;
+    font-size: 1.3rem;
+}
+.key-learnings {
+    margin-top: 15px;
+    background: #e8e8ff;
+    padding: 15px;
+    border-radius: 5px;
+}
+.key-learnings h5 { margin: 0 0 10px 0; }
+.key-learnings ul { padding-left: 20px; margin: 0; }
+
+.research-projects-section {
+    padding: 80px 20px;
+    background: #f7f7f7;
 }
 
 .research-item {
@@ -818,9 +947,28 @@ STYLES FOR PUBLICATIONS PAGE
 }
 
 .books-section {
+    padding: 80px 20px;
     background-color: var(--light-bg);
-    padding: 80px 0;
 }
+.book-showcase {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 40px;
+    align-items: flex-start;
+    margin-bottom: 50px;
+    padding-bottom: 50px;
+    border-bottom: 1px solid #ccc;
+}
+.book-showcase:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+.book-cover img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+}
+.book-details h3 { font-size: 1rem; color: #777; margin: 0; text-transform: uppercase; letter-spacing: 1px;}
+.book-details h2 { font-size: 2rem; color: var(--purple-blue); margin: 5px 0 15px 0; }
+
 
 .book-item {
     padding-bottom: 50px;
@@ -978,7 +1126,20 @@ STYLES FOR ADVOCACY PAGE
     padding: 80px 0;
 }
 
-
+.find-our-voice-section {
+    padding: 60px 20px;
+    background-color: #f7f7f7;
+    text-align: center;
+}
+.find-our-voice-section h2 { margin-bottom: 10px; font-size: 2rem; }
+.social-button-dark {
+    display: inline-block;
+    padding: 12px 25px;
+    background: var(--dark-bg);
+    color: var(--text-light);
+    border-radius: 5px;
+    font-weight: bold;
+}
 
 
 
@@ -1086,16 +1247,71 @@ STYLES FOR ABOUT PAGE
     background: var(--light-bg);
 }
 
-.boards-section {
-    padding: 80px 0;
-    background-color: #f7f7f7;
+.what-we-believe-section {
+    background-color: var(--dark-bg);
+    color: var(--text-light);
+    padding: 80px 20px;
 }
-
+.belief-pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    text-align: center;
+}
+.pillar i { font-size: 3rem; color: var(--purple-blue); margin-bottom: 15px; }
+.pillar h3 { margin: 0 0 10px 0; }
+.linkages-section {
+    padding: 80px 20px;
+    background-color: #f7f7f7;
+    text-align: center;
+}
+.linkages-section p { max-width: 800px; margin: 0 auto 40px auto; }
+.logo-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+.logo-item {
+    height: 80px;
+    width: 160px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #999;
+}
+.boards-section {
+    padding: 80px 20px;
+    background: var(--light-bg);
+}
+.boards-section h2 { text-align: center; margin-bottom: 40px; }
 .boards-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 50px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
 }
+.board-member-card {
+    text-align: center;
+}
+.board-placeholder-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: #ccc;
+    margin: 0 auto 15px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.board-placeholder-img i { font-size: 4rem; color: #fff; }
+.board-member-card h4 { margin: 0 0 5px 0; font-size: 1.2rem; }
+.board-member-card p { margin: 0; }
 
 .board-list ul {
     list-style: none;
