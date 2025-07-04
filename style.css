@@ -12,11 +12,11 @@ body {
     margin: 0;
     color: var(--text-dark);
     line-height: 1.6;
-    background-color: var(--light-bg); /* Fallback background */
+    background-color: var(--light-bg);
 }
 
 body.menu-open,
-body.dragging { /* Prevent text selection while dragging */
+body.dragging {
     overflow: hidden;
     user-select: none;
 }
@@ -27,7 +27,6 @@ body.dragging { /* Prevent text selection while dragging */
     padding: 0 20px;
 }
 
-/* All links */
 a {
     color: var(--purple-blue);
     text-decoration: none;
@@ -91,12 +90,7 @@ nav {
 /* Intro Section */
 .intro-section {
     background-color: var(--light-bg);
-    padding: 100px 40px; 
-    text-align: center;
-}
-
-.intro-section .content-wrapper {
-    text-align: left;
+    padding: 100px 40px;
 }
 
 .intro-section h2 {
@@ -108,11 +102,7 @@ nav {
     color: var(--text-dark);
 }
 
-.intro-section h2:not(.text-center-underline)::after {
-    display: none;
-}
-
-.intro-section .text-center-underline h2::after {
+.intro-section.text-center-underline h2::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -134,7 +124,7 @@ nav {
     width: 100%;
     height: 550px;
     overflow: hidden;
-    background-color: #2e2e2e; 
+    background-color: #2e2e2e;
 }
 
 .carousel {
@@ -142,15 +132,16 @@ nav {
     height: 100%;
     position: relative;
     cursor: grab;
+    /* This will be dynamically set by JS */
 }
+
 .carousel.dragging {
     cursor: grabbing;
 }
 
-
 .carousel-slide {
     min-width: 100%;
-    position: relative;
+    max-width: 100%;
     height: 100%;
 }
 
@@ -159,7 +150,7 @@ nav {
     height: 100%;
     display: block;
     object-fit: cover;
-    pointer-events: none; /* Prevents image ghost dragging */
+    pointer-events: none;
 }
 
 .slide-caption {
@@ -182,7 +173,6 @@ nav {
     font-weight: normal;
 }
 
-/* 4. Carousel "Learn More" Button Style */
 .carousel-button {
     display: inline-block;
     background-color: var(--purple-blue);
@@ -377,23 +367,15 @@ footer {
 
 .footer-col a {
     color: var(--purple-blue);
-    text-decoration: none;
-    transition: text-decoration 0.2s;
-}
-
-.footer-col a:hover {
-    text-decoration: underline;
 }
 
 /* Fullscreen Menu Styles */
-/* 1. Increased menu button size */
 .menu-toggle {
     position: absolute;
     top: 40px;
     right: 40px;
-    /* Original size: width: 30px; height: 22px; */
-    width: 90px; /* 300% width */
-    height: 66px; /* 300% height */
+    width: 30px;
+    height: 22px;
     background: transparent;
     border: none;
     cursor: pointer;
@@ -401,30 +383,25 @@ footer {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 15px; /* Add padding to make the clickable area larger */
-    box-sizing: content-box;
 }
 
 .menu-toggle span {
     width: 100%;
-    height: 9px; /* 300% height */
+    height: 3px;
     background-color: var(--text-light);
     transition: transform 0.3s ease, opacity 0.3s ease;
     border-radius: 3px;
 }
 
-/* 2. Symmetrical 'X' shape */
 .menu-toggle.active span:nth-child(1) {
-    transform: translateY(28.5px) rotate(45deg);
+    transform: translateY(9.5px) rotate(45deg);
 }
 .menu-toggle.active span:nth-child(2) {
     opacity: 0;
-    transform: translateX(-20px);
 }
 .menu-toggle.active span:nth-child(3) {
-    transform: translateY(-28.5px) rotate(-45deg);
+    transform: translateY(-9.5px) rotate(-45deg);
 }
-
 
 #fullscreen-menu {
     position: fixed;
@@ -461,13 +438,7 @@ footer {
 .menu-nav a {
     font-size: 2rem;
     color: var(--text-dark);
-    text-decoration: none;
     font-weight: bold;
-    transition: color 0.2s ease;
-}
-
-.menu-nav a:hover {
-    color: var(--purple-blue);
 }
 
 /*
@@ -475,26 +446,19 @@ footer {
 STYLES FOR SUB-PAGES
 ========================================
 */
-
-/* Hero section for sub-pages */
-.hero-trainings,
-.hero-research,
-.hero-podcast,
-.hero-publications,
-.hero-advocacy,
-.hero-about {
-    height: 60vh; /* Adjusted height for sub-pages */
-    justify-content: flex-end; /* Aligns content to the bottom */
+.hero-trainings, .hero-research, .hero-podcast, .hero-publications, .hero-advocacy, .hero-about {
+    height: 60vh;
+    justify-content: flex-end;
 }
 
-/* 6. Title positioned in bottom left corner */
 .hero-page-title {
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 60%;
-    padding: 40px;
+    width: 100%;
     text-align: left;
+    padding: 40px;
+    box-sizing: border-box;
     background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
 }
 
@@ -504,13 +468,13 @@ STYLES FOR SUB-PAGES
     text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
 }
 
-/* Specific Page Hero Backgrounds */
 .hero-trainings { background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.4)), url('trainings1.jpg'); }
 .hero-research { background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.4)), url('research1.jpg'); }
 .hero-podcast { background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.4)), url('podcast1.jpg'); }
 .hero-publications { background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.4)), url('publications1.jpg'); }
 .hero-advocacy { background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.4)), url('advocacy1.jpg'); }
 .hero-about { background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.4)), url('about1.jpg'); }
+
 
 .at-a-glance-section {
     background-color: var(--dark-bg);
@@ -530,63 +494,18 @@ STYLES FOR SUB-PAGES
     color: var(--purple-blue);
     margin-bottom: 10px;
 }
-.glance-item h3 {
-    margin: 0;
-    font-size: 2rem;
-}
-.glance-item p {
-    margin: 0;
-    font-size: 1rem;
-}
+.glance-item h3 { margin: 0; font-size: 2rem; }
+.glance-item p { margin: 0; font-size: 1rem; }
 
-
-
-
-/*
-========================================
-STYLES FOR TRAININGS PAGE
-========================================
-*/
-
-/* Hero section for sub-pages */
-.hero-trainings {
-    height: 70vh; /* Shorter than the homepage hero */
-    align-items: flex-end; /* Aligns content to the bottom */
-    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4)), url('trainings1.jpg');
-}
-
-.hero-page-title {
-    width: 100%;
-    text-align: left;
-    padding: 40px;
-    box-sizing: border-box;
-}
-
-.hero-page-title h1 {
-    font-size: 4rem;
-    margin: 0;
-    text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
-}
-
-/* General content wrapper for centering */
-.content-wrapper {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-/* Courses Section (Accordion) */
 .courses-section {
     background-color: #f7f7f7;
     padding: 100px 20px;
 }
-
 .course-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
 }
-
 .course-card {
     background: #fff;
     border: 1px solid #ddd;
@@ -609,78 +528,6 @@ STYLES FOR TRAININGS PAGE
     line-height: 1.5;
 }
 
-.course-item {
-    border-bottom: 1px solid #ccc;
-}
-
-.course-header {
-    width: 100%;
-    background: none;
-    border: none;
-    text-align: left;
-    font-size: 1.3rem;
-    font-weight: bold;
-    padding: 20px 0;
-    cursor: pointer;
-    position: relative;
-    color: var(--text-dark);
-}
-
-.course-header::after {
-    content: '+';
-    position: absolute;
-    right: 0;
-    font-size: 2rem;
-    font-weight: 300;
-    color: var(--purple-blue);
-    transition: transform 0.3s ease;
-}
-
-.course-header.active::after {
-    transform: rotate(45deg);
-}
-
-.course-content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease-out;
-    padding: 0;
-}
-
-.course-content p, .course-content ul {
-    margin-top: 0;
-    padding-bottom: 20px;
-}
-
-.course-content ul {
-    padding-left: 20px;
-}
-
-/* Distinctives Section */
-.distinctives-section {
-    background-color: #f7f7f7;
-    padding: 100px 0;
-}
-
-.distinctives-section h2 {
-    text-align: center;
-    margin-bottom: 40px;
-    font-size: 2rem;
-}
-
-.distinctives-list dt {
-    font-weight: bold;
-    font-size: 1.1rem;
-    margin-top: 20px;
-    color: var(--purple-blue);
-}
-
-.distinctives-list dd {
-    margin-left: 0;
-    margin-bottom: 20px;
-}
-
-/* Training Contact Form */
 .training-contact-section form {
     display: flex;
     flex-direction: column;
@@ -688,50 +535,23 @@ STYLES FOR TRAININGS PAGE
     max-width: 700px;
     margin: 20px auto 0;
 }
-
-.training-contact-section h2,
-.training-contact-section p {
+.training-contact-section h2, .training-contact-section p {
     text-align: center;
 }
-
-.training-contact-section input,
-.training-contact-section textarea,
-.training-contact-section button {
+.training-contact-section input, .training-contact-section textarea, .training-contact-section button {
     padding: 15px;
     border-radius: 5px;
     border: 1px solid #ccc;
     font-size: 1rem;
     font-family: inherit;
 }
-
-.training-contact-section textarea {
-    resize: vertical;
-}
-
+.training-contact-section textarea { resize: vertical; }
 .training-contact-section button {
     background-color: var(--purple-blue);
     color: white;
     border: none;
     cursor: pointer;
     font-weight: bold;
-}
-
-
-
-
-
-
-/*
-========================================
-STYLES FOR RESEARCH PAGE
-========================================
-*/
-
-/* Hero section for Research page */
-.hero-research {
-    height: 70vh;
-    align-items: flex-end;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4)), url('research1.jpg');
 }
 
 .featured-research-section {
@@ -770,7 +590,7 @@ STYLES FOR RESEARCH PAGE
     content: '';
     position: absolute;
     width: 4px;
-    background-color: var(--purple-blue);
+    background-color: #ddd;
     top: 0;
     bottom: 0;
     left: 20px;
@@ -780,15 +600,15 @@ STYLES FOR RESEARCH PAGE
     position: relative;
 }
 .timeline-item::after {
-    content: '\f111'; /* Font Awesome circle icon */
+    content: '\f111';
     font-family: 'Font Awesome 6 Free';
     font-weight: 900;
     position: absolute;
     left: 8px;
     top: 10px;
     font-size: 1.2rem;
-    color: #fff;
-    background-color: var(--purple-blue);
+    color: var(--purple-blue);
+    background-color: var(--light-bg);
     border-radius: 50%;
     width: 28px;
     height: 28px;
@@ -805,87 +625,27 @@ STYLES FOR RESEARCH PAGE
     background: #e8e8ff;
     padding: 15px;
     border-radius: 5px;
+    border: 1px solid #d1d1ff;
 }
 .key-learnings h5 { margin: 0 0 10px 0; }
 .key-learnings ul { padding-left: 20px; margin: 0; }
-
-.research-projects-section {
-    padding: 80px 20px;
-    background: #f7f7f7;
-}
-
-.research-item {
-    padding: 30px 0;
-    border-bottom: 1px solid #ccc;
-}
-.research-item:last-child {
-    border-bottom: none;
-}
-
-.research-item h3 {
-    font-size: 1.8rem;
-    color: var(--purple-blue);
-    margin-top: 0;
-    margin-bottom: 20px;
-}
-
-.research-item ol {
-    padding-left: 20px;
-}
-
-.research-sub-item {
-    margin-top: 30px;
-}
-
-.research-sub-item h4 {
-    font-size: 1.2rem;
-    margin-bottom: 5px;
-    font-weight: bold;
-}
-
-
-
-
-
-
-
-/*
-========================================
-STYLES FOR PODCAST PAGE
-========================================
-*/
-
-/* Hero section for Podcast page */
-.hero-podcast {
-    height: 70vh;
-    align-items: flex-end;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4)), url('podcast1.jpg');
-}
 
 .podcast-intro {
     display: flex;
     gap: 40px;
     align-items: flex-start;
 }
-
-.podcast-description {
-    flex: 1;
-}
-
-.podcast-video-wrapper {
-    flex: 1.5;
-}
-
+.podcast-description { flex: 1; }
+.podcast-video-wrapper { flex: 1.5; }
 .video-container {
     position: relative;
-    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    padding-bottom: 56.25%;
     height: 0;
     overflow: hidden;
     max-width: 100%;
     background: #000;
     border-radius: 8px;
 }
-
 .video-container iframe {
     position: absolute;
     top: 0;
@@ -893,58 +653,24 @@ STYLES FOR PODCAST PAGE
     width: 100%;
     height: 100%;
 }
-
 .social-links {
     margin-top: 30px;
     display: flex;
     gap: 15px;
+    flex-wrap: wrap;
 }
-
 .social-button {
     display: inline-block;
     padding: 10px 20px;
     border-radius: 5px;
     color: white;
-    text-decoration: none;
     font-weight: bold;
     text-align: center;
     transition: transform 0.2s ease;
 }
-.social-button:hover {
-    transform: scale(1.05);
-}
-
-.social-button.facebook {
-    background-color: #1877F2;
-}
-
-.social-button.spotify {
-    background-color: #1DB954;
-}
-
-/* Responsive adjustments for podcast page */
-@media (max-width: 768px) {
-    .podcast-intro {
-        flex-direction: column;
-    }
-}
-
-
-
-
-
-/*
-========================================
-STYLES FOR PUBLICATIONS PAGE
-========================================
-*/
-
-/* Hero section for Publications page */
-.hero-publications {
-    height: 70vh;
-    align-items: flex-end;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4)), url('publications1.jpg');
-}
+.social-button:hover { transform: scale(1.05); text-decoration: none; }
+.social-button.facebook { background-color: #1877F2; }
+.social-button.spotify { background-color: #1DB954; }
 
 .books-section {
     padding: 80px 20px;
@@ -966,50 +692,18 @@ STYLES FOR PUBLICATIONS PAGE
     border-radius: 5px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.2);
 }
-.book-details h3 { font-size: 1rem; color: #777; margin: 0; text-transform: uppercase; letter-spacing: 1px;}
+.book-details h3 { font-size: 1rem; color: #555; margin: 0; text-transform: uppercase; letter-spacing: 1px; }
 .book-details h2 { font-size: 2rem; color: var(--purple-blue); margin: 5px 0 15px 0; }
-
-
-.book-item {
-    padding-bottom: 50px;
-    margin-bottom: 50px;
-    border-bottom: 1px solid #ccc;
-}
-.book-item:last-child {
-    border-bottom: none;
-    margin-bottom: 0;
-    padding-bottom: 0;
-}
-
-.book-item h2 {
-    font-size: 2rem;
-    color: var(--purple-blue);
-    margin-top: 0;
-}
-
-.testimonials {
-    margin-top: 30px;
-    padding-top: 20px;
-    border-top: 1px solid #ddd;
-}
-
-.testimonials h4 {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-}
-
 .testimonials blockquote {
-    margin: 0 0 20px 0;
-    padding-left: 20px;
+    margin: 20px 0 20px 0;
+    padding: 15px;
     border-left: 4px solid var(--purple-blue);
     font-style: italic;
     font-size: 1.1rem;
+    background-color: #fff;
+    color: var(--text-dark);
 }
-
-.testimonials blockquote p {
-    margin: 0;
-}
-
+.testimonials blockquote p { margin: 0; }
 .testimonials blockquote footer {
     font-style: normal;
     font-weight: bold;
@@ -1018,112 +712,56 @@ STYLES FOR PUBLICATIONS PAGE
     font-size: 0.9rem;
 }
 
-.arts-section {
-    background-color: #f7f7f7;
-    padding: 80px 0;
-}
-
-.arts-section h2 {
-    text-align: center;
-    font-size: 2.2rem;
-    margin-bottom: 30px;
-}
-
 .rappler-section {
-    background-color: var(--dark-bg);
-    padding: 80px 0;
-    color: var(--text-light);
+    background-color: #f7f7f7;
+    padding: 80px 20px;
 }
-
-.rappler-section h2 {
+.rappler-header {
     text-align: center;
-    font-size: 2.2rem;
     margin-bottom: 40px;
 }
-
+.rappler-header img {
+    height: 40px;
+    margin-bottom: 15px;
+}
+.rappler-header p {
+    max-width: 600px;
+    margin: 0 auto;
+}
 .rappler-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
 }
-
 .rappler-card {
-    display: block;
-    background-color: #5a6e7a;
-    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
     border-radius: 8px;
     text-decoration: none;
-    color: var(--text-light);
+    color: var(--text-dark);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
 }
-
 .rappler-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.12);
 }
-
+.rappler-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
 .rappler-card h3 {
-    margin-top: 0;
-    font-size: 1.3rem;
+    margin: 15px;
+    font-size: 1.2rem;
+    flex-grow: 1;
 }
-
-.rappler-card p {
-    margin-bottom: 0;
+.rappler-card span {
+    margin: 0 15px 15px 15px;
     font-weight: bold;
     color: var(--purple-blue);
-}
-
-
-
-
-
-
-/*
-========================================
-STYLES FOR ADVOCACY PAGE
-========================================
-*/
-
-/* Hero section for Advocacy page */
-.hero-advocacy {
-    height: 70vh;
-    align-items: flex-end;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4)), url('advocacy1.jpg');
-}
-
-.intro-section h2,
-.faith-politics-section h2,
-.media-production-section h2,
-.forum-section h2 {
-    font-size: 2rem;
-    color: var(--purple-blue);
-    margin-bottom: 20px;
-}
-
-.faith-politics-section {
-    background-color: #f7f7f7;
-    padding: 80px 0;
-}
-
-.media-production-section {
-    background-color: var(--light-bg);
-    padding: 80px 0;
-}
-
-.productions-list, .forum-list {
-    list-style: none;
-    padding-left: 0;
-}
-
-.productions-list li, .forum-list li {
-    padding-left: 20px;
-    border-left: 3px solid var(--purple-blue);
-    margin-bottom: 25px;
-}
-
-.forum-section {
-    background-color: #f7f7f7;
-    padding: 80px 0;
 }
 
 .find-our-voice-section {
@@ -1131,7 +769,7 @@ STYLES FOR ADVOCACY PAGE
     background-color: #f7f7f7;
     text-align: center;
 }
-.find-our-voice-section h2 { margin-bottom: 10px; font-size: 2rem; }
+.find-our-voice-section h2 { margin-bottom: 10px; font-size: 2rem; color: var(--purple-blue); }
 .social-button-dark {
     display: inline-block;
     padding: 12px 25px;
@@ -1139,112 +777,30 @@ STYLES FOR ADVOCACY PAGE
     color: var(--text-light);
     border-radius: 5px;
     font-weight: bold;
+    margin: 5px;
 }
-
-
-
-
-/*
-========================================
-STYLES FOR ABOUT PAGE
-========================================
-*/
-
-/* Hero section for About page */
-.hero-about {
-    height: 70vh;
-    align-items: flex-end;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4)), url('about1.jpg');
+.social-button-dark:hover {
+    text-decoration: none;
+    background: #333;
 }
-
-.history-section {
+.faith-politics-section {
+    background-color: var(--light-bg);
+    padding: 80px 20px;
+}
+.faith-politics-section h2 { color: var(--purple-blue); }
+.media-production-section {
     background-color: #f7f7f7;
-    padding: 80px 0;
+    padding: 80px 20px;
 }
-
-.history-section h2,
-.vision-mission-section h3,
-.beliefs-section h2,
-.what-we-do-section h2,
-.linkages-section h2,
-.boards-section h3 {
-    color: var(--purple-blue);
+.media-production-section h2 { color: var(--purple-blue); }
+.productions-list {
+    list-style: none;
+    padding-left: 0;
 }
-
-.history-section h4 {
-    font-size: 1.2rem;
-    font-style: italic;
-}
-
-.vision-mission-section {
-    padding: 60px 0;
-    background: var(--dark-bg);
-    color: var(--text-light);
-}
-
-.vision-mission-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-.vision-mission-item {
+.productions-list li {
     padding-left: 20px;
     border-left: 3px solid var(--purple-blue);
-}
-
-.what-we-do-section {
-    padding: 80px 0;
-    background-color: var(--light-bg);
-}
-
-.what-we-do-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-}
-
-.what-we-do-card {
-    background-color: #fff;
-    padding: 25px;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-}
-
-.what-we-do-card h4 {
-    margin-top: 0;
-    color: var(--purple-blue);
-}
-
-.beliefs-section {
-    padding: 80px 0;
-    background: #f7f7f7;
-}
-
-.belief-item {
-    margin-bottom: 30px;
-}
-
-.belief-item h3 {
-    font-size: 1.3rem;
-    border-bottom: 2px solid var(--purple-blue);
-    padding-bottom: 10px;
-    margin-bottom: 15px;
-}
-
-.belief-conclusion {
-    margin-top: 40px;
-    padding: 20px;
-    background: var(--light-bg);
-    border-left: 4px solid var(--purple-blue);
-}
-
-.linkages-section {
-    padding: 80px 0;
-    background: var(--light-bg);
+    margin-bottom: 25px;
 }
 
 .what-we-believe-section {
@@ -1260,6 +816,12 @@ STYLES FOR ABOUT PAGE
 }
 .pillar i { font-size: 3rem; color: var(--purple-blue); margin-bottom: 15px; }
 .pillar h3 { margin: 0 0 10px 0; }
+.history-section {
+    background-color: var(--light-bg);
+    padding: 80px 20px;
+}
+.history-section h2, .linkages-section h2, .boards-section h2 { color: var(--purple-blue); text-align: center; margin-bottom: 40px; }
+.history-section h4 { font-size: 1.2rem; font-style: italic; }
 .linkages-section {
     padding: 80px 20px;
     background-color: #f7f7f7;
@@ -1288,7 +850,6 @@ STYLES FOR ABOUT PAGE
     padding: 80px 20px;
     background: var(--light-bg);
 }
-.boards-section h2 { text-align: center; margin-bottom: 40px; }
 .boards-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -1313,38 +874,26 @@ STYLES FOR ABOUT PAGE
 .board-member-card h4 { margin: 0 0 5px 0; font-size: 1.2rem; }
 .board-member-card p { margin: 0; }
 
-.board-list ul {
-    list-style: none;
-    padding: 0;
-}
-.board-list li {
-    margin-bottom: 10px;
-}
-
-
-
-
-
-
-
-
-
 /* Responsive Adjustments */
 @media (max-width: 768px) {
     .hero-text h1 { font-size: 2rem; }
     .hero-page-title h1 { font-size: 2.5rem; }
-    .cta-content, .partners-content, .podcast-intro, .boards-grid { flex-direction: column; }
-    .slide-caption, .hero-page-title { width: 80%; padding: 20px; }
+    .cta-content, .partners-content, .podcast-intro, .boards-grid, .featured-research-grid, .book-showcase { flex-direction: column; display: flex; }
+    .slide-caption, .hero-page-title { width: 100%; padding: 20px; box-sizing: border-box; }
     .slide-caption h3 { font-size: 1.4rem; }
     .slide-caption span { font-size: 1rem; }
     #contact-form { flex-direction: column; }
     .carousel-section { height: 450px; }
     .intro-section, .cta-section, .partners-section { padding: 80px 20px; }
-    .menu-toggle { top: 20px; right: 20px; width: 60px; height: 44px; } /* Adjusted size for mobile */
-    .menu-toggle span { height: 6px; }
-    .menu-toggle.active span:nth-child(1) { transform: translateY(19px) rotate(45deg); }
-    .menu-toggle.active span:nth-child(3) { transform: translateY(-19px) rotate(-45deg); }
+    .menu-toggle { top: 20px; right: 20px; width: 30px; height: 22px; }
+    .menu-toggle span { height: 3px; }
+    .menu-toggle.active span:nth-child(1) { transform: translateY(9.5px) rotate(45deg); }
+    .menu-toggle.active span:nth-child(3) { transform: translateY(-9.5px) rotate(-45deg); }
     .menu-nav a { font-size: 1.5rem; }
     .footer-content { flex-direction: column; text-align: center; }
     .footer-col h4 { display: table; margin-left: auto; margin-right: auto; }
+    .glance-grid { grid-template-columns: 1fr; }
+    .timeline::after { left: 10px; }
+    .timeline-item { padding: 10px 20px 30px 40px; }
+    .timeline-item::after { left: 0; }
 }
