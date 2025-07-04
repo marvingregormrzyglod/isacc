@@ -806,6 +806,60 @@ STYLES FOR PUBLICATIONS PAGE
 
 
 
+/*
+========================================
+STYLES FOR ADVOCACY PAGE
+========================================
+*/
+
+/* Hero section for Advocacy page */
+.hero-advocacy {
+    height: 70vh;
+    align-items: flex-end;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4)), url('advocacy1.jpg');
+}
+
+.intro-section h2,
+.faith-politics-section h2,
+.media-production-section h2,
+.forum-section h2 {
+    font-size: 2rem;
+    color: var(--purple-blue);
+    margin-bottom: 20px;
+}
+
+.faith-politics-section {
+    background-color: #f7f7f7;
+    padding: 80px 0;
+}
+
+.media-production-section {
+    background-color: var(--light-bg);
+    padding: 80px 0;
+}
+
+.productions-list, .forum-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.productions-list li, .forum-list li {
+    padding-left: 20px;
+    border-left: 3px solid var(--purple-blue);
+    margin-bottom: 25px;
+}
+
+.forum-section {
+    background-color: #f7f7f7;
+    padding: 80px 0;
+}
+
+
+
+
+
+
+
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
