@@ -1,5 +1,4 @@
-// --- START: Universal Menu Logic ---
-// 5. This script now correctly handles the menu on all pages.
+// --- Universal Menu Logic ---
 const menuToggle = document.querySelector('.menu-toggle');
 const fullscreenMenu = document.getElementById('fullscreen-menu');
 
@@ -10,17 +9,22 @@ if (menuToggle && fullscreenMenu) {
         document.body.classList.toggle('menu-open');
     });
 }
-// --- END: Universal Menu Logic ---
 
-
-// --- START: Draggable Carousel Logic ---
-// 3. This new logic adds click-and-drag functionality to the carousel.
+// --- Draggable Carousel Logic ---
 const carousel = document.querySelector('.carousel');
 
 if (carousel) {
-    const slides = Array.from(carousel.children);
+    const slidesContainer = carousel;
+    const slides = Array.from(slidesContainer.children);
     const nextButton = document.querySelector('.next');
     const prevButton = document.querySelector('.prev');
+    const slideWidth = slides[0].getBoundingClientRect().width;
+
+    // Arrange slides next to one another
+    const setSlidePosition = (slide, index) => {
+        slide.style.left = slideWidth * index + 'px';
+    };
+    slides.forEach(setSlidePosition);
 
     let isDragging = false,
         startPos = 0,
@@ -29,40 +33,36 @@ if (carousel) {
         animationID,
         currentIndex = 0;
 
-    // Set initial positions for slides
-    slides.forEach((slide, index) => {
-        slide.style.transform = `translateX(${index * 100}%)`;
-    });
+    carousel.addEventListener('mousedown', dragStart);
+    carousel.addEventListener('touchstart', dragStart);
 
-    // Event Listeners
-    slides.forEach((slide, index) => {
-        // Touch events
-        slide.addEventListener('touchstart', touchStart(index));
-        slide.addEventListener('touchend', touchEnd);
-        slide.addEventListener('touchmove', touchMove);
+    carousel.addEventListener('mouseup', dragEnd);
+    carousel.addEventListener('mouseleave', dragEnd);
+    carousel.addEventListener('touchend', dragEnd);
 
-        // Mouse events
-        slide.addEventListener('mousedown', touchStart(index));
-        slide.addEventListener('mouseup', touchEnd);
-        slide.addEventListener('mouseleave', touchEnd);
-        slide.addEventListener('mousemove', touchMove);
-    });
-
-    // Arrow button listeners
+    carousel.addEventListener('mousemove', drag);
+    carousel.addEventListener('touchmove', drag);
+    
     nextButton.addEventListener('click', () => moveToSlide(currentIndex + 1));
     prevButton.addEventListener('click', () => moveToSlide(currentIndex - 1));
 
-    function touchStart(index) {
-        return function (event) {
-            currentIndex = index;
-            startPos = getPositionX(event);
-            isDragging = true;
-            animationID = requestAnimationFrame(animation);
-            carousel.classList.add('dragging');
+    function dragStart(event) {
+        if (event.target.classList.contains('carousel-button')) return;
+        event.preventDefault();
+        startPos = getPositionX(event);
+        isDragging = true;
+        animationID = requestAnimationFrame(animation);
+        slidesContainer.classList.add('dragging');
+    }
+
+    function drag(event) {
+        if (isDragging) {
+            const currentPosition = getPositionX(event);
+            currentTranslate = prevTranslate + currentPosition - startPos;
         }
     }
 
-    function touchEnd() {
+    function dragEnd(event) {
         if (!isDragging) return;
         isDragging = false;
         cancelAnimationFrame(animationID);
@@ -79,14 +79,7 @@ if (carousel) {
 
         moveToSlide(currentIndex);
 
-        carousel.classList.remove('dragging');
-    }
-
-    function touchMove(event) {
-        if (isDragging) {
-            const currentPosition = getPositionX(event);
-            currentTranslate = prevTranslate + currentPosition - startPos;
-        }
+        slidesContainer.classList.remove('dragging');
     }
 
     function getPositionX(event) {
@@ -99,37 +92,33 @@ if (carousel) {
     }
 
     function setSliderPosition() {
-        carousel.style.transform = `translateX(${currentTranslate}px)`;
+        slidesContainer.style.transform = `translateX(${currentTranslate}px)`;
     }
 
     function moveToSlide(slideIndex) {
-        if(slideIndex < 0) slideIndex = 0;
-        if(slideIndex >= slides.length) slideIndex = slides.length - 1;
+        if (slideIndex < 0) slideIndex = 0;
+        if (slideIndex > slides.length - 1) slideIndex = slides.length - 1;
+        
+        const targetTranslate = slideIndex * -slideWidth;
+        slidesContainer.style.transition = 'transform 0.4s ease-out';
+        slidesContainer.style.transform = `translateX(${targetTranslate}px)`;
 
-        const slideWidth = slides[0].getBoundingClientRect().width;
-        currentTranslate = slideIndex * -slideWidth;
-        prevTranslate = currentTranslate;
-        
-        carousel.style.transition = 'transform 0.4s ease-out';
-        setSliderPosition();
-        
+        currentTranslate = targetTranslate;
+        prevTranslate = targetTranslate;
         currentIndex = slideIndex;
 
-        // Remove transition after it's done to allow for smooth dragging
-        carousel.ontransitionend = () => {
-            carousel.style.transition = 'none';
-        };
+        slidesContainer.addEventListener('transitionend', () => {
+            slidesContainer.style.transition = 'none';
+        }, { once: true });
     }
 }
-// --- END: Draggable Carousel Logic ---
 
 
-
-// --- START: Google Sheet Form Submission Logic ---
+// --- Google Sheet Form Submission Logic ---
 const form = document.getElementById('contact-form');
 const formMessage = document.getElementById('form-message');
 if(form) {
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbw2Fze7nz9TYAFh60JGrmdaojYyHTLizgudU7ftUa1xodapUk3CP4GQs3K2fEkVGXaumA/exec'; //
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbw2Fze7nz9TYAFh60JGrmdaojYyHTLizgudU7ftUa1xodapUk3CP4GQs3K2fEkVGXaumA/exec';
 
     form.addEventListener('submit', e => {
         e.preventDefault();
@@ -145,4 +134,3 @@ if(form) {
             });
     });
 }
-// --- END: Google Sheet Form Submission Logic ---
