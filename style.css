@@ -541,6 +541,66 @@ STYLES FOR TRAININGS PAGE
 
 
 
+
+
+/*
+========================================
+STYLES FOR RESEARCH PAGE
+========================================
+*/
+
+/* Hero section for Research page */
+.hero-research {
+    height: 70vh;
+    align-items: flex-end;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4)), url('research1.jpg');
+}
+
+.research-projects-section {
+    background-color: var(--light-bg);
+    padding: 80px 0;
+}
+
+.research-item {
+    padding: 30px 0;
+    border-bottom: 1px solid #ccc;
+}
+.research-item:last-child {
+    border-bottom: none;
+}
+
+.research-item h3 {
+    font-size: 1.8rem;
+    color: var(--purple-blue);
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.research-item ol {
+    padding-left: 20px;
+}
+
+.research-sub-item {
+    margin-top: 30px;
+}
+
+.research-sub-item h4 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 /* Responsive Adjustments */
 @media (max-width: 768px) {
     .hero-text h1 { font-size: 2rem; }
