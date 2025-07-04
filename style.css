@@ -596,6 +596,90 @@ STYLES FOR RESEARCH PAGE
 
 
 
+/*
+========================================
+STYLES FOR PODCAST PAGE
+========================================
+*/
+
+/* Hero section for Podcast page */
+.hero-podcast {
+    height: 70vh;
+    align-items: flex-end;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4)), url('podcast1.jpg');
+}
+
+.podcast-intro {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+.podcast-description {
+    flex: 1;
+}
+
+.podcast-video-wrapper {
+    flex: 1.5;
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    background: #000;
+    border-radius: 8px;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.social-links {
+    margin-top: 30px;
+    display: flex;
+    gap: 15px;
+}
+
+.social-button {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    text-align: center;
+    transition: transform 0.2s ease;
+}
+.social-button:hover {
+    transform: scale(1.05);
+}
+
+.social-button.facebook {
+    background-color: #1877F2;
+}
+
+.social-button.spotify {
+    background-color: #1DB954;
+}
+
+/* Responsive adjustments for podcast page */
+@media (max-width: 768px) {
+    .podcast-intro {
+        flex-direction: column;
+    }
+}
+
+
+
+
+
 
 
 
