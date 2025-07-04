@@ -124,23 +124,6 @@ if (carousel) {
 // --- END: Draggable Carousel Logic ---
 
 
-// --- START: Accordion Logic for Trainings Page ---
-document.addEventListener('DOMContentLoaded', () => {
-    const accordionHeaders = document.querySelectorAll('.course-header');
-
-    accordionHeaders.forEach(header => {
-        header.addEventListener('click', () => {
-            header.classList.toggle('active');
-            const content = header.nextElementSibling;
-            if (content.style.maxHeight) {
-                content.style.maxHeight = null;
-            } else {
-                content.style.maxHeight = content.scrollHeight + "px";
-            }
-        });
-    });
-});
-// --- END: Accordion Logic for Trainings Page ---
 
 // --- START: Google Sheet Form Submission Logic ---
 const form = document.getElementById('contact-form');
