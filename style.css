@@ -1199,6 +1199,18 @@ STYLES FOR ENHANCED PUBLICATIONS PAGE
 }
 
 .author-bio {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.author-bio .author-image {
+    flex-basis: 300px;
+    flex-shrink: 0;
+    order: -1; /* This is the key for desktop view */
+}
+
+.author-bio .author-text-content {
     flex: 1;
 }
 
@@ -1219,6 +1231,25 @@ STYLES FOR ENHANCED PUBLICATIONS PAGE
     line-height: 1.7;
     margin-bottom: 25px;
 }
+
+.author-text-content h3 {
+    font-size: 1rem;
+    color: var(--purple-blue);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+.author-text-content h2 {
+    font-size: 2.2rem;
+    margin: 5px 0 15px 0;
+}
+
+.author-text-content p {
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
 
 .learn-more-link {
     font-weight: bold;
@@ -1465,6 +1496,17 @@ STYLES FOR ADVOCACY PAGE
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
+
+    .author-bio {
+        display: block; /* Revert to natural block flow on mobile */
+        text-align: center;
+    }
+    .author-bio .author-image {
+        order: 0; /* Reset order */
+        width: 60%;
+        margin: 20px auto; /* Center image with vertical spacing */
+    }
+    
     .two-column-layout, 
     .two-column-layout-reversed,
     .initiative-card,
