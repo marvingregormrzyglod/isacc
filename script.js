@@ -18,7 +18,7 @@ if (carousel) {
     const slides = Array.from(slidesContainer.children);
     const nextButton = document.querySelector('.next');
     const prevButton = document.querySelector('.prev');
-    const slideWidth = slides[0].getBoundingClientRect().width;
+    let slideWidth = slides.length > 0 ? slides[0].getBoundingClientRect().width : 0;
 
     // The setSlidePosition function was causing the drag issue and is not needed with flexbox.
     // It has been removed.
@@ -97,6 +97,10 @@ if (carousel) {
     }
 
     function moveToSlide(slideIndex) {
+        // Recalculate slideWidth on each move to ensure it's correct for the current viewport
+        slideWidth = slides.length > 0 ? slides[0].getBoundingClientRect().width : 0;
+        if (slideWidth === 0) return; // Don't do anything if width is 0
+
         if (slideIndex < 0) slideIndex = 0;
         if (slideIndex > slides.length - 1) slideIndex = slides.length - 1;
         
