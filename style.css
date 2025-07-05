@@ -1072,6 +1072,7 @@ STYLES FOR ENHANCED PODCAST PAGE
     display: flex;
     gap: 15px;
     flex-wrap: wrap;
+    justify-content: center;
 }
 .social-button {
     display: inline-block;
