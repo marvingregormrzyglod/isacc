@@ -703,14 +703,43 @@ STYLES FOR SUB-PAGES
     color: var(--text-dark);
 }
 .testimonials blockquote p { margin: 0; }
-.testimonials blockquote footer {
+.testimonials blockquote cite {
+    display: block; /* Ensures it takes its own line */
     font-style: normal;
     font-weight: bold;
-    margin-top: 15px; /* More space */
-    color: #555; /* Slightly softer color */
+    margin-top: 15px;
+    color: #555;
     font-size: 1rem;
-    text-align: right; /* Align to the right */
-    background-color: transparent !important; /* Fix for black box issue */
+    text-align: right;
+    background-color: transparent; /* Ensures no unwanted background color */
+}
+
+/* New rule for the Amazon purchase button */
+.purchase-button {
+    display: inline-block;
+    background-color: var(--purple-blue);
+    color: white;
+    padding: 12px 25px;
+    margin-top: 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.purchase-button:hover {
+    background-color: #5850e0;
+    transform: scale(1.05);
+    text-decoration: none;
+}
+
+.purchase-button i {
+    margin-left: 8px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.purchase-button:hover i {
+    transform: translateX(5px);
 }
 
 .rappler-section {
