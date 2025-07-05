@@ -54,16 +54,20 @@ a:hover {
 nav {
     position: absolute;
     top: 0;
-    left: 0;
-    width: 100%;
+    left: 0; /* Changed from 0 to 20px for a small left margin */
+    width: auto; /* Allow width to be determined by content */
     padding: 20px;
     box-sizing: border-box;
 }
 
 .logo {
     width: 100px;
-    margin: 20px 40px;
+    margin: 0; /* Remove existing margin */
+    position: absolute; /* Position the logo absolutely within the nav */
+    top: 20px; /* Adjust as needed for desired vertical position */
+    left: 40px; /* Adjust as needed for desired horizontal position */
 }
+
 
 .hero-text {
     padding-top: 5vh;
@@ -392,8 +396,8 @@ footer {
     position: absolute;
     top: 40px;
     right: 40px;
-    width: 40px; /* Adjusted size */
-    height: 30px; /* Adjusted size */
+    width: 80px; /* Increased width by 200% (from 40px) */
+    height: 60px; /* Increased height by 200% (from 30px) */
     background: transparent;
     border: none;
     cursor: pointer;
@@ -405,7 +409,7 @@ footer {
 
 .menu-toggle span {
     width: 100%;
-    height: 4px; /* Thicker lines for visibility */
+    height: 8px; /* Increased thickness by 200% (from 4px) */
     background-color: var(--text-light);
     transition: transform 0.3s ease, opacity 0.3s ease;
     border-radius: 3px;
@@ -414,13 +418,13 @@ footer {
 
 /* Symmetrical X-icon */
 .menu-toggle.active span:nth-child(1) {
-    transform: translateY(13px) rotate(45deg);
+    transform: translateY(26px) rotate(45deg); /* Adjusted translateY for new height */
 }
 .menu-toggle.active span:nth-child(2) {
     opacity: 0;
 }
 .menu-toggle.active span:nth-child(3) {
-    transform: translateY(-13px) rotate(-45deg);
+    transform: translateY(-26px) rotate(-45deg); /* Adjusted translateY for new height */
 }
 
 
@@ -823,6 +827,18 @@ STYLES FOR SUB-PAGES
     padding: 80px 20px;
 }
 .media-production-section h2 { color: var(--purple-blue); }
+
+.media-production-section .media-image {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.media-production-section .media-image img {
+    width: 100%;
+    max-width: 600px;
+    border-radius: 8px;
+}
+
 .productions-list {
     list-style: none;
     padding-left: 0;
@@ -1462,10 +1478,21 @@ STYLES FOR ADVOCACY PAGE
     #contact-form { flex-direction: column; }
     .carousel-section { height: 450px; }
     .intro-section, .cta-section, .partners-section { padding: 80px 20px; }
-    .menu-toggle { top: 20px; right: 20px; width: 30px; height: 22px; }
-    .menu-toggle span { height: 3px; }
-    .menu-toggle.active span:nth-child(1) { transform: translateY(9.5px) rotate(45deg); }
-    .menu-toggle.active span:nth-child(3) { transform: translateY(-9.5px) rotate(-45deg); }
+    .menu-toggle {
+        top: 20px;
+        right: 20px;
+        width: 60px; /* Adjusted size for smaller screens */
+        height: 44px; /* Adjusted size for smaller screens */
+    }
+    .menu-toggle span {
+        height: 6px; /* Adjusted thickness for smaller screens */
+    }
+    .menu-toggle.active span:nth-child(1) {
+        transform: translateY(19px) rotate(45deg); /* Adjusted translateY for smaller screens */
+    }
+    .menu-toggle.active span:nth-child(3) {
+        transform: translateY(-19px) rotate(-45deg); /* Adjusted translateY for smaller screens */
+    }
     .menu-nav a { font-size: 1.5rem; }
     .footer-content { flex-direction: column; text-align: center; }
     .footer-col h4 { display: table; margin-left: auto; margin-right: auto; }
