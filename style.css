@@ -823,6 +823,18 @@ STYLES FOR SUB-PAGES
     padding: 80px 20px;
 }
 .media-production-section h2 { color: var(--purple-blue); }
+
+.media-production-section .media-image {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.media-production-section .media-image img {
+    width: 100%;
+    max-width: 600px;
+    border-radius: 8px;
+}
+
 .productions-list {
     list-style: none;
     padding-left: 0;
