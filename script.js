@@ -20,11 +20,8 @@ if (carousel) {
     const prevButton = document.querySelector('.prev');
     const slideWidth = slides[0].getBoundingClientRect().width;
 
-    // Arrange slides next to one another
-    const setSlidePosition = (slide, index) => {
-        slide.style.left = slideWidth * index + 'px';
-    };
-    slides.forEach(setSlidePosition);
+    // The setSlidePosition function was causing the drag issue and is not needed with flexbox.
+    // It has been removed.
 
     let isDragging = false,
         startPos = 0,
@@ -34,21 +31,24 @@ if (carousel) {
         currentIndex = 0;
 
     carousel.addEventListener('mousedown', dragStart);
-    carousel.addEventListener('touchstart', dragStart);
+    carousel.addEventListener('touchstart', dragStart, { passive: true }); // passive for better scroll performance
 
     carousel.addEventListener('mouseup', dragEnd);
     carousel.addEventListener('mouseleave', dragEnd);
     carousel.addEventListener('touchend', dragEnd);
 
     carousel.addEventListener('mousemove', drag);
-    carousel.addEventListener('touchmove', drag);
+    carousel.addEventListener('touchmove', drag, { passive: true }); // passive for better scroll performance
     
     nextButton.addEventListener('click', () => moveToSlide(currentIndex + 1));
     prevButton.addEventListener('click', () => moveToSlide(currentIndex - 1));
 
     function dragStart(event) {
         if (event.target.classList.contains('carousel-button')) return;
-        event.preventDefault();
+        // Do not prevent default for touchstart to allow vertical scrolling
+        if (event.type === 'mousedown') {
+            event.preventDefault();
+        }
         startPos = getPositionX(event);
         isDragging = true;
         animationID = requestAnimationFrame(animation);
@@ -69,6 +69,7 @@ if (carousel) {
 
         const movedBy = currentTranslate - prevTranslate;
 
+        // Move to next/prev slide if moved more than 100px
         if (movedBy < -100 && currentIndex < slides.length - 1) {
             currentIndex += 1;
         }
@@ -107,6 +108,7 @@ if (carousel) {
         prevTranslate = targetTranslate;
         currentIndex = slideIndex;
 
+        // Remove transition after it ends to allow smooth dragging again
         slidesContainer.addEventListener('transitionend', () => {
             slidesContainer.style.transition = 'none';
         }, { once: true });
