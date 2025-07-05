@@ -1257,6 +1257,130 @@ STYLES FOR ADVOCACY PAGE
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+/* Add these new styles to your style.css file */
+
+/* --- General Two-Column Layouts --- */
+.two-column-layout, .two-column-layout-reversed {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+.column-text {
+    flex: 1.5; /* Gives more space to text */
+}
+.column-images {
+    flex: 1;
+    display: grid;
+    gap: 15px;
+}
+.column-images img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+.two-column-layout-reversed .column-text {
+    order: 1;
+}
+.two-column-layout-reversed .column-images {
+    order: 2;
+}
+
+/* --- Faith and Politics Initiative Card --- */
+.faith-politics-section {
+    background-color: var(--light-bg);
+    padding: 80px 20px;
+}
+.initiative-card {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start; /* Aligns items to the top */
+    background: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+.initiative-text { 
+    flex: 1.5; 
+}
+.initiative-image { 
+    flex: 1; 
+}
+.initiative-image img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+/* --- Media Production Section --- */
+.media-layout {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+.media-text {
+    flex: 1.5;
+}
+.media-image {
+    flex: 1;
+}
+.media-image img {
+    width: 100%;
+    border-radius: 8px;
+}
+.productions-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-top: 20px;
+}
+.production-item {
+    background: #e8e8ff;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 0.95rem;
+}
+.production-item i {
+    margin-right: 8px;
+    color: var(--purple-blue);
+}
+
+/* --- Legacy Forums Section --- */
+.legacy-forums-section .column-images img {
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+    .two-column-layout, 
+    .two-column-layout-reversed,
+    .initiative-card,
+    .media-layout {
+        flex-direction: column;
+    }
+    .two-column-layout-reversed .column-text {
+        order: 2;
+    }
+    .two-column-layout-reversed .column-images {
+        order: 1;
+    }
+    .productions-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
 /* Responsive Adjustments */
 @media (max-width: 768px) {
 
