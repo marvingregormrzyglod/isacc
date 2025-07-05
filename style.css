@@ -858,6 +858,16 @@ STYLES FOR SUB-PAGES
     font-size: 2.2rem;
 }
 .history-section h4 { font-size: 1.2rem; font-style: italic; }
+
+.linkages-categories { /* Styles for new linkage lists */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    text-align: left;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
 .linkages-section {
     padding: 80px 20px;
     background-color: #f7f7f7;
