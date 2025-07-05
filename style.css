@@ -1125,6 +1125,78 @@ STYLES FOR ENHANCED PODCAST PAGE
     font-size: 0.9rem;
 }
 
+/*
+========================================
+STYLES FOR ENHANCED PUBLICATIONS PAGE
+========================================
+*/
+.author-section {
+    padding: 80px 20px;
+    background-color: var(--light-bg); /* Or use #f7f7f7 to alternate */
+}
+
+.author-section .content-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.author-image {
+    flex-basis: 300px;
+}
+
+.author-image img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.author-bio {
+    flex: 1;
+}
+
+.author-bio h3 {
+    font-size: 1rem;
+    color: var(--purple-blue);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+.author-bio h2 {
+    font-size: 2.2rem;
+    margin: 5px 0 15px 0;
+}
+
+.author-bio p {
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+.learn-more-link {
+    font-weight: bold;
+    color: var(--purple-blue);
+    text-decoration: none;
+}
+
+.learn-more-link:hover {
+    text-decoration: underline;
+}
+
+.learn-more-link i {
+    font-size: 0.8em;
+    margin-left: 5px;
+}
+
+.rappler-card p.rappler-excerpt {
+    margin: 0 15px 15px 15px;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #555;
+    flex-grow: 1; /* Helps align the 'Read on Rappler' text */
+}
+
+
 
 
 /* Responsive Adjustments */
@@ -1132,6 +1204,11 @@ STYLES FOR ENHANCED PODCAST PAGE
 
     .podcast-intro-updated {
     flex-direction: column;
+    }
+
+    .author-section .content-wrapper {
+    flex-direction: column;
+    text-align: center;
     }
     
     .hero-text h1 { font-size: 2rem; }
