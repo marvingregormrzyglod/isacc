@@ -935,6 +935,21 @@ STYLES FOR SUB-PAGES
 .board-member-card h4 { margin: 0 0 5px 0; font-size: 1.2rem; }
 .board-member-card p { margin: 0; }
 
+.logo-item img,
+.board-placeholder-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.logo-item img {
+    object-fit: contain; /* Use 'contain' for logos to prevent distortion */
+}
+
+.board-placeholder-img {
+    overflow: hidden; /* Hides any part of the image that might overflow the circular frame */
+}
+
 /* New Recognitions Section */
 .recognitions-section {
     padding: 80px 20px;
