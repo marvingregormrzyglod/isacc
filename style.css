@@ -1007,9 +1007,13 @@ STYLES FOR ENHANCED PODCAST PAGE
 */
 .podcast-intro-updated {
     display: grid; /* Use Grid for layout control */
-    grid-template-columns: 1.5fr 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 50px;
-    align-items: flex-start;
+}
+
+.podcast-description h2,
+.podcast-video-wrapper h3 {
+    margin-top: 0;
 }
 
 .podcast-description {
@@ -1553,6 +1557,10 @@ STYLES FOR ADVOCACY PAGE
     .podcast-intro-updated {
         display: flex;
         flex-direction: column;
+        align-items: center;
+    }
+    .podcast-video-wrapper {
+        width: 100%; /* Ensures the container uses the full available width */
     }
     .footer-content { flex-direction: column; text-align: center; }
     .footer-col h4 { display: table; margin-left: auto; margin-right: auto; }
