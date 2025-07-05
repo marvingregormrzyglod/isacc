@@ -54,8 +54,8 @@ a:hover {
 nav {
     position: absolute;
     top: 0;
-    left: 0; /* Changed from 0 to 20px for a small left margin */
-    width: auto; /* Allow width to be determined by content */
+    left: 0; 
+    width: 100%;
     padding: 20px;
     box-sizing: border-box;
 }
