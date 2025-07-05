@@ -846,6 +846,7 @@ STYLES FOR SUB-PAGES
 }
 .pillar i { font-size: 3rem; color: var(--purple-blue); margin-bottom: 15px; }
 .pillar h3 { margin: 0 0 10px 0; }
+.pillar p { margin: 0; }
 .history-section {
     background-color: var(--light-bg);
     padding: 80px 20px;
@@ -881,14 +882,6 @@ STYLES FOR SUB-PAGES
     justify-content: center;
     font-weight: bold;
     color: #999;
-}
-.linkages-categories { /* Styles for new linkage lists */
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 40px;
-    text-align: left;
-    max-width: 1000px;
-    margin: 0 auto;
 }
 .linkages-category h4 {
     font-size: 1.3rem;
@@ -1257,19 +1250,6 @@ STYLES FOR ADVOCACY PAGE
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-/* Add these new styles to your style.css file */
-
 /* --- General Two-Column Layouts --- */
 .two-column-layout, .two-column-layout-reversed {
     display: flex;
@@ -1295,6 +1275,35 @@ STYLES FOR ADVOCACY PAGE
 .two-column-layout-reversed .column-images {
     order: 2;
 }
+
+/* --- Intro Section Image-Text Pairing --- */
+.text-image-pair {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin-bottom: 60px; /* Space between each pair */
+    text-align: left; /* Align text left within the pair */
+}
+
+.text-image-pair:nth-child(even) { /* Reverse order for every other pair */
+    flex-direction: row-reverse;
+}
+
+.text-image-pair .pair-text {
+    flex: 1;
+}
+
+.text-image-pair .pair-image {
+    flex: 1;
+}
+
+.text-image-pair img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
 
 /* --- Faith and Politics Initiative Card --- */
 .faith-politics-section {
@@ -1322,51 +1331,106 @@ STYLES FOR ADVOCACY PAGE
 }
 
 /* --- Media Production Section --- */
-.media-layout {
+.media-intro-layout {
     display: flex;
     gap: 40px;
     align-items: center;
+    margin-bottom: 40px; /* Space between intro and list */
 }
-.media-text {
+
+.media-intro-layout .media-text {
     flex: 1.5;
 }
-.media-image {
+.media-intro-layout .media-image {
     flex: 1;
 }
-.media-image img {
+.media-intro-layout .media-image img {
     width: 100%;
     border-radius: 8px;
 }
-.productions-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
-    margin-top: 20px;
+
+.productions-list-single-column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 800px; /* Adjust as needed */
+    margin: 0 auto; /* Center the list */
 }
-.production-item {
+
+.productions-list-single-column .production-item {
     background: #e8e8ff;
-    padding: 15px;
-    border-radius: 5px;
-    font-size: 0.95rem;
+    padding: 20px;
+    border-radius: 8px;
+    font-size: 1rem;
+    border-left: 4px solid var(--purple-blue);
+    text-align: left; /* Align text within production item */
 }
-.production-item i {
-    margin-right: 8px;
+.productions-list-single-column .production-item i {
+    margin-right: 10px;
     color: var(--purple-blue);
+    font-size: 1.1em;
 }
+.productions-list-single-column .production-item strong {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 1.1em;
+}
+.productions-list-single-column .production-item p {
+    margin: 0;
+    font-size: 0.95em;
+    color: #555;
+}
+
 
 /* --- Legacy Forums Section --- */
-.legacy-forums-section .column-images img {
-    height: 100%;
-    object-fit: cover;
+.legacy-forums-section .legacy-main-image {
+    width: 100%;
+    max-width: 600px; /* Adjust size as needed */
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    margin: 40px auto 60px auto; /* Centered with space */
+    display: block; /* Ensure it takes full width and can be centered with auto margins */
+}
+
+.legacy-events-list {
+    list-style: none;
+    padding: 0;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.legacy-events-list li {
+    background: #f7f7f7;
+    border-left: 4px solid var(--purple-blue);
+    padding: 20px;
+    margin-bottom: 20px; /* Increased margin for better separation */
+    border-radius: 0 5px 5px 0;
+    text-align: left;
+}
+
+.legacy-events-list li strong {
+    display: block;
+    font-size: 1.25rem; /* Slightly larger for emphasis */
+    color: var(--text-dark);
+    margin-bottom: 8px;
+}
+
+.legacy-events-list li p {
+    margin: 0;
+    font-size: 1.05rem; /* Slightly larger text */
+    color: #555;
+    line-height: 1.6;
 }
 
 
-/* --- Responsive Adjustments --- */
+/* Responsive Adjustments */
 @media (max-width: 768px) {
     .two-column-layout, 
     .two-column-layout-reversed,
     .initiative-card,
-    .media-layout {
+    .media-intro-layout, /* Apply to the new media intro layout */
+    .text-image-pair { /* Apply to the new intro section pairs */
         flex-direction: column;
     }
     .two-column-layout-reversed .column-text {
@@ -1375,24 +1439,10 @@ STYLES FOR ADVOCACY PAGE
     .two-column-layout-reversed .column-images {
         order: 1;
     }
-    .productions-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-
-    .podcast-intro-updated {
-    flex-direction: column;
+    .text-image-pair:nth-child(even) { /* Reset for small screens */
+        flex-direction: column;
     }
 
-    .author-section .content-wrapper {
-    flex-direction: column;
-    text-align: center;
-    }
-    
     .hero-text h1 { font-size: 2rem; }
     .hero-page-title h1 { font-size: 2.5rem; }
     .cta-content, .partners-content, .podcast-intro, .boards-grid, .featured-research-grid, .book-showcase, .training-images-grid { flex-direction: column; display: flex; grid-template-columns: 1fr; }
