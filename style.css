@@ -410,7 +410,7 @@ footer {
 .menu-toggle span {
     width: 100%;
     height: 8px;
-    background-color: var(--text-light);
+    background-color: var(--primary-orange); /* CHANGED: Was --text-light */
     transition: transform 0.3s ease, opacity 0.3s ease;
     border-radius: 3px;
     transform-origin: center;
@@ -465,6 +465,15 @@ footer {
     color: var(--text-dark);
     font-weight: bold;
 }
+
+/* ADDED: New hover state for menu navigation links */
+.menu-nav a:hover {
+    text-decoration: underline;
+    text-decoration-color: var(--primary-orange);
+    text-decoration-thickness: 3px;
+    text-underline-offset: 6px;
+}
+
 
 /*
 ========================================
