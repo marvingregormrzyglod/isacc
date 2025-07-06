@@ -86,9 +86,9 @@ nav {
 }
 
 .downward-line {
-    width: 8px;
-    height: 30vh;
-    background: linear-gradient(to bottom, var(--secondary-blue), transparent);
+    width: 14px;
+    height: 40vh;
+    background: linear-gradient(to bottom, var(--primary-orange), transparent);
     margin: 30px auto 0;
 }
 
