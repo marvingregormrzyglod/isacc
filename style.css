@@ -355,7 +355,23 @@ nav {
 footer {
     background-color: #333;
     color: #eee;
-    padding: 60px 40px;
+    padding: 60px 40px 100px; /* MODIFIED: Increased bottom padding */
+    position: relative;      /* ADDED: For pseudo-element positioning */
+    overflow: hidden;        /* ADDED: Prevents pattern from spilling out */
+}
+
+/* ADDED: Decorative tribal pattern at the bottom of the footer */
+footer::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 25px; /* Height of the decorative pattern */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='50' height='25'%3E%3Cg fill='%23F27C38' fill-opacity='0.6'%3E%3Cpath d='M0 12.5 L12.5 0 L25 12.5 L12.5 25 Z M25 12.5 L37.5 0 L50 12.5 L37.5 25 Z' /%3E%3C/g%3E%3C/svg%3E");
+    background-size: 50px 25px; /* Size of one tile of the pattern */
+    background-repeat: repeat-x;
+    pointer-events: none;
 }
 
 .footer-content {
@@ -410,7 +426,7 @@ footer {
 .menu-toggle span {
     width: 100%;
     height: 8px;
-    background-color: var(--primary-orange); /* CHANGED: Was --text-light */
+    background-color: var(--primary-orange);
     transition: transform 0.3s ease, opacity 0.3s ease;
     border-radius: 3px;
     transform-origin: center;
@@ -466,7 +482,6 @@ footer {
     font-weight: bold;
 }
 
-/* ADDED: New hover state for menu navigation links */
 .menu-nav a:hover {
     text-decoration: underline;
     text-decoration-color: var(--primary-orange);
