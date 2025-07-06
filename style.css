@@ -355,9 +355,9 @@ nav {
 footer {
     background-color: #333;
     color: #eee;
-    padding: 60px 40px 100px; /* MODIFIED: Increased bottom padding */
-    position: relative;      /* ADDED: For pseudo-element positioning */
-    overflow: hidden;        /* ADDED: Prevents pattern from spilling out */
+    padding: 60px 40px 105px; /* MODIFIED: Increased bottom padding */
+    position: relative;
+    overflow: hidden;
 }
 
 /* ADDED: Decorative tribal pattern at the bottom of the footer */
@@ -367,9 +367,9 @@ footer::after {
     bottom: 0;
     left: 0;
     right: 0;
-    height: 25px; /* Height of the decorative pattern */
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='50' height='25'%3E%3Cg fill='%23F27C38' fill-opacity='0.6'%3E%3Cpath d='M0 12.5 L12.5 0 L25 12.5 L12.5 25 Z M25 12.5 L37.5 0 L50 12.5 L37.5 25 Z' /%3E%3C/g%3E%3C/svg%3E");
-    background-size: 50px 25px; /* Size of one tile of the pattern */
+    height: 30px; /* Adjusted height for the new pattern */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='30'%3E%3Cg fill='none' stroke='%23F27C38' stroke-width='2' stroke-linecap='round' opacity='0.75'%3E%3Cpath d='M5,25 C15,25 15,15 5,15 C15,15 15,5 5,5' /%3E%3Ccircle cx='20' cy='15' r='1.5' fill='%23F27C38' stroke='none' /%3E%3Cpath d='M35,5 C45,5 45,15 35,15 C45,15 45,25 35,25' /%3E%3Ccircle cx='50' cy='15' r='1.5' fill='%23F27C38' stroke='none' /%3E%3Cpath d='M65,5 L65,25 L75,15 Z' /%3E%3Cpath d='M85,10 L85,20' /%3E%3C/g%3E%3C/svg%3E");
+    background-size: 90px 30px; /* Adjusted size of the pattern tile */
     background-repeat: repeat-x;
     pointer-events: none;
 }
